@@ -45,6 +45,62 @@ ServiceNow is one of the most widely deployed platforms in enterprise IT. Most I
 | Running reports on ticket data | Metrics drive IT operations decisions at every level |
 | Understanding ITIL Incident / Problem / Change | The core process vocabulary used across enterprise IT |
 
+## Setup — Step by Step
+
+### 1. Get a free instance
+1. Go to `developer.servicenow.com`
+2. Click **Sign Up** and create a free account — email and password only, no credit card required
+3. Click **Request Instance**
+4. Select the latest stable release (Washington or newer)
+5. Click **Request** — the instance provisions in 10–15 minutes
+6. Check your email for the instance URL (format: `dev12345.service-now.com`) and login credentials
+
+> ServiceNow hibernates a Personal Developer Instance after 10 days of inactivity and reclaims it after 30. Log in at least once a week to keep it (and your work) alive.
+
+### 2. Navigate the platform
+Key modules used in this lab, found in the left navigation panel:
+- **Incident** → Service Desk → Incidents
+- **Problem** → Service Desk → Problems
+- **Change** → Change → Changes
+- **Service Catalog** → Service Catalog → Catalogs
+- **Reports** → Reports → Create New
+- **Workflow Editor** → Process Automation → Flow Designer
+
+### 3. Create and work an incident
+7. Navigate to **Service Desk → Incidents → New**
+8. Fill in the form — caller (e.g. Abel Tuter), category (Software), subcategory (Email), a short description of the issue, full description, priority (3 — Moderate), and Assignment Group (Service Desk)
+9. Click **Submit**
+10. Note the ticket number (format: `INC0001234`)
+11. Open the incident, set **State** to *In Progress*
+12. Assign it to yourself
+13. Add a **Work Note** documenting troubleshooting steps and an ETA (internal, IT-only)
+14. Add a **Resolution Note** documenting the fix
+15. Set **State** to *Resolved* → *Closed*
+
+### 4. Build a service catalog item
+16. Navigate to **Service Catalog → Catalogs → Service Catalog**
+17. Click **Maintain Items → New**
+18. Fill in name (e.g. "New Laptop Request"), category (Hardware), short description, full description, fulfillment group (IT Hardware Team), and leave price blank
+19. Click **Submit**
+20. Go to the **Variables** tab and add fields — e.g. Requester Name (text, mandatory), Business Justification (multi-line text, mandatory), Required By Date (date, mandatory), Laptop Model Preference (select box, optional)
+21. **Save and Preview** — the item now appears in the catalog portal
+
+### 5. Create a change request with an approval workflow
+22. Navigate to **Change → Changes → New (Standard)**
+23. Fill in short description, category, risk, impact, start/end date, and a full description including the rollback plan
+24. Under the **Planning** tab, add a Test Plan and Backout Plan
+25. Click **Request Approval** — moves the change to *Pending Approval*
+26. Go to the **Approvals** tab and approve it as the admin user
+27. Confirm the change moves to *Scheduled*
+
+### 6. Build reports
+28. Navigate to **Reports → Create New**
+29. Name it (e.g. "Incident Volume by Priority — Last 30 Days")
+30. Set Data to `Incident [incident]`, Type to Bar Chart, Group by to Priority
+31. Add a condition: Created is on or after 30 days ago
+32. Click **Save and Run**
+33. Repeat for two more reports: **MTTR by Assignment Group** and **Open Incidents by Assigned Agent**
+
 ## Incident Walkthrough
 
 **Scenario:** User cannot access Outlook — "Cannot connect to server."
@@ -114,7 +170,3 @@ Included a documented test plan and backout plan, then submitted for approval. A
 ## Related Labs
 
 - **Lab 3** — Splunk SIEM & Log Analysis
-
----
-
-*Part of a home-lab portfolio built to demonstrate practical IT support and ITSM skills for entry-level roles.*
