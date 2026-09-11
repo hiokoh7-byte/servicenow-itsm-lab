@@ -7,7 +7,7 @@ A hands-on lab using a free ServiceNow Personal Developer Instance to work IT ti
 ![Status](https://img.shields.io/badge/Status-Complete-success)
 
 ## 🎥 Demo Video
-[Watch me build this lab end-to-end →](PASTE_YOUR_LINK_HERE)
+[Watch me build this lab end-to-end →](https://www.loom.com/share/556a49187ecc4c049f187dca1e3bc882)
 
 ## Overview
 
@@ -118,6 +118,9 @@ Key modules used in this lab, found in the left navigation panel:
 4. Documented the resolution (corrupted Outlook profile, rebuilt account)
 5. Closed the ticket with user confirmation
 
+![Incident INC0010001](./screenshots/01-incident-INC0010001.png)
+> **Takeaway:** Ticket INC0010001 shows the completed record — caller (Abel Tuter), category/subcategory (Software/Email), priority set to 3-Moderate with urgency at 1-High, routed to the Help Desk assignment group, and state moved all the way through to Closed. This is what a fully worked ticket looks like end to end, not just the initial submission.
+
 ## Service Catalog Item — New Laptop Request
 
 Built a catalog entry so employees can request hardware without opening a ticket manually.
@@ -131,6 +134,9 @@ Built a catalog entry so employees can request hardware without opening a ticket
 
 Fulfillment routed to the IT Hardware Team, with a documented SLA (reviewed within 2 business days, delivered within 5–7 after approval).
 
+![Service Catalog — New Laptop Request](./screenshots/02-service-catalog-new-laptop-request.png)
+> **Takeaway:** The live catalog item as an end user would see it — the Required By Date, Laptop Model Preference dropdown, and Business Justification field all render as real form inputs in the self-service portal, with a 2-day delivery estimate shown up front. This is the difference between a ticket type and an actual self-service experience.
+
 ## Change Request & Approval Workflow
 
 **Scenario:** Deploy security patch MS24-001 to all Windows workstations.
@@ -143,11 +149,17 @@ Fulfillment routed to the IT Hardware Team, with a documented SLA (reviewed with
 
 Included a documented test plan and backout plan, then submitted for approval. Approved the change as admin and confirmed it moved to *Scheduled* — demonstrating the control that prevents uncoordinated changes to production.
 
+![Change Request CHG0030001](./screenshots/03-change-request-CHG0030001.png)
+> **Takeaway:** CHG0030001 sitting in the *Scheduled* state on the workflow bar, having already cleared *Assess* and *Authorize*. This is the visual proof that the approval gate actually worked — the change couldn't reach Scheduled without being authorized first.
+
 ## Reports Built
 
 - **Incident Volume by Priority** — last 30 days, bar chart
 - **Mean Time to Resolution (MTTR)** — grouped by Assignment Group
 - **Open Incidents by Assigned Agent** — used for workload balancing
+
+![Report — Open Incidents by Assigned Agent](./screenshots/04-report-open-incidents-by-agent.png)
+> **Takeaway:** The donut chart breaks down open incidents by assignee — a large chunk (37.5%) unassigned, ITIL User carrying 20% of the load, and the rest spread thin across individual agents. This is the exact kind of view a team lead uses to catch an unbalanced queue before it becomes a bottleneck.
 
 ## ITIL Concepts Applied
 
